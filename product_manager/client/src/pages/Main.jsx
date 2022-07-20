@@ -11,7 +11,7 @@ const Main = () => {
   // STATE REFRESH
   const [submitted, setSubmitted] = useState(false)
 
-  // CONST REFRESH FUNCTION
+  // CONST REFRESH EMPTY ARROW FUNCTION
   const refresh = () => {
     setSubmitted(!submitted)
   }
@@ -27,7 +27,7 @@ const Main = () => {
   return (
     <div>
         <ProductForm refresh={refresh} />
-        <ProductDisplay products={products} />
+        <ProductDisplay products={products} refresh={refresh} />
     </div>
   )
 }

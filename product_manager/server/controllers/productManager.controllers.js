@@ -23,3 +23,17 @@ module.exports.getOneProduct = (req, res) => {
         .then(oneProduct => res.json(oneProduct))
         .catch(error => res.json(error))
 }
+
+// UPDATE
+module.exports.updateProduct = (req, res) => {
+    Product.findOneAndUpdate({_id: req.params.product_id}, req.body, {new: true, runValidators: true})
+        .then(updateOneProduct => res.json(updateOneProduct))
+        .catch(error => res.status(400).json(error))
+}
+
+// DELETE
+module.exports.destroyProduct = (req,res) => {
+    Product.deleteOne({_id: req.params.product_id})
+        .then(confirm => res.json(confirm))
+        .catch(error => res.json(error))
+}
